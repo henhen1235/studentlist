@@ -1,0 +1,50 @@
+#include <iostream>
+
+using namespace std;
+/*
+  Henry Xu
+  8/19/24
+  Guessing game C++
+*/
+int main()
+{
+  srand(time(NULL));
+  int guess; // set up varriables
+  int answer = rand() % 100;
+  int tries = 0;
+  char plays = 'y';
+  char quit;
+  while (plays == 'y'){//while play is still == y
+    while (guess != answer){// while guess is not == answer
+      cout << "guess a number" << endl;//guess a number
+      cin >> guess;// what is their guess?
+      
+    tries++;
+    if (guess > answer){
+      cout << "TOO BIG"<< endl;
+    }
+    if (guess < answer){
+      cout << "too small" << endl;
+    }
+    if (guess == answer){
+      cout << "good job! It took you: " << tries << "tries" << endl;
+      }
+    /*    if (tries % 5 == 0){
+      cout << "wanna give up?(y/n)" <<endl;
+      cin >> quit;
+      if (quit == 'y'){
+	cout << "The answer was" << answer << endl;
+      }
+      }*/
+  }
+  cout << "Wanna play again?(y/n)" << endl;
+  cin >> plays;
+  if (plays == 'y'){
+    answer = rand() % 100;
+    tries = 0;
+  }
+  if (plays == 'n'){
+    plays = 'n';
+   }
+}
+}
