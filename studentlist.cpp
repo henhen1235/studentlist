@@ -30,21 +30,25 @@ void deleteS(vector<Student*> &studentslist);
 
 
 int main(){
-    string command;
+    char command[50];
     vector<Student*> studentslist;//create the vector of pointers
     while(true){
         cout << "What command would you like to run?" << endl;//ask the user for the command they would like to run
         cin >> command;
-        if (command == "add"){//if they run the command add then run the function add
+	char add[50] = "add";
+	char print[50] = "print";
+	char delet[50] = "delete";
+        char quit[50] = "quit";
+        if (strcmp(command, add) == 0){//if they run the command add then run the function add
             addS(studentslist);
         }
-        else if (command == "print"){//if they run the command print then run the function print
+        else if (strcmp(command, print) == 0){//if they run the command print then run the function print
             printS(studentslist);
         }
-        else if (command == "delete"){//if they run the command delete then run the function delete
+        else if (strcmp(command, delet) == 0){//if they run the command delete then run the function delete
             deleteS(studentslist);
         }
-        else if (command == "quit"){//if they run the command quit then delete all the students in the vector list
+        else if (strcmp(command, quit) == 0){//if they run the command quit then delete all the students in the vector list
             for (auto it = studentslist.begin(); it != studentslist.end(); it++) {
                 delete *it;
             }
